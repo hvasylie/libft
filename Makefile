@@ -6,7 +6,7 @@
 #    By: hvasylie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/04 23:34:07 by hvasylie          #+#    #+#              #
-#    Updated: 2019/05/05 00:25:31 by hvasylie         ###   ########.fr        #
+#    Updated: 2019/05/05 00:35:22 by hvasylie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ $(OBJECT):
 	gcc -Wall -Wextra -Werror -c  $(FILE)
 
 clean:
-	rm: all
+	rm: $(OBJECT)
 fclean:
-	rm -f: all
+	rm -f: $(NAME)
 re:
 	fclean: all
 
