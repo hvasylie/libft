@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 23:58:45 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/06 18:07:41 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/05/10 17:51:33 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/05/12 17:24:14 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	void *mem;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
 
-	if (!(mem = malloc(size)))
-		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	i = 0;
+	while (dst[i] && i < dstsize)
+		i++;
+	j = i;
+	while (src[i - j] && i + 1 < dstsize)
+	{
+		dst[i] = src[i - j];
+		i++;
+	}
+	k = 0;
+	while (src[k])
+	{
+		k++;
+	}
+	if (j < dstsize)
+		dst[i] = '\0';
+	return (j + k);
 }

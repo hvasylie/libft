@@ -6,11 +6,10 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 22:31:17 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/04 23:08:43 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/13 23:37:07 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putendl_fd(char const *s, int fd)
@@ -23,5 +22,5 @@ void	ft_putendl_fd(char const *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
-	write(1, "\n", 1);
+	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:48:00 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/04 23:07:13 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/14 19:44:30 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	num;
-	int	sgn;
+	int				i;
+	long long int	num;
+	long long int	sgn;
 
 	i = 0;
 	num = 0;
@@ -30,6 +30,6 @@ int	ft_atoi(char *str)
 		if (str[i++] == '-')
 			sgn = -1;
 	while (str[i] >= '0' && str[i] <= '9')
-		num = (num * 10) + (str[i++] - '0');
+		num = (num * 10) + (long long int)(str[i++] - '0');
 	return (num * sgn);
 }

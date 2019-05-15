@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 22:13:38 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/04 23:08:56 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/13 23:35:35 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_putstr(char const *s)
 
 	i = 0;
 	while (s[i])
-		write(1, &str[i], 1);
-	i++;
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
 }

@@ -6,12 +6,17 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:25:06 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/02 14:01:05 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/07 14:29:39 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z' || (c >= 'A' && c <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	{
 		return (c);
+	}
+	return (0);
 }

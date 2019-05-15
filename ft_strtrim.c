@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 23:58:45 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/06 18:07:41 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/05/07 20:17:50 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/05/14 19:48:20 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strtrim(char const *s)
 {
-	void *mem;
+	size_t	min;
+	size_t	max;
+	size_t	len;
 
-	if (!(mem = malloc(size)))
+	if (!s)
 		return (NULL);
-	ft_bzero(mem, size);
-	return (mem);
+	min = 0;
+	while (s[min] != '\0'
+			&& (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
+		min++;
+	max = ft_strlen((char*)s);
+	while (min < max
+			&& (s[max - 1] == ' ' || s[max - 1] == '\n' || s[max - 1] == '\t'))
+		max--;
+	if (min == max)
+		return (ft_strnew(1));
+	len = max - min;
+	return (ft_strsub(s, min, len));
 }

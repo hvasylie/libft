@@ -6,14 +6,16 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:36:43 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/04 23:17:52 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/12 17:32:16 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower_l(int c, locale_t loc)
+int		ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
+	else
+		return (c);
 }

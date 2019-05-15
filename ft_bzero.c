@@ -6,18 +6,20 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 17:07:29 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/04 23:07:10 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/13 14:41:41 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	t_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
+	char *c;
+
+	c = s;
 	while (n--)
 	{
-		*s = '\0';
-		s++;
+		*c = '\0';
+		c++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:02:41 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/04 23:09:41 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/07 22:46:02 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ char	*ft_strcpy(char *dst, const char *src)
 		i++;
 		j++;
 	}
+	dst[i] = '\0';
 	return (dst);
 }
