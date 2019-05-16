@@ -6,30 +6,29 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:48:00 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/14 19:44:30 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/14 21:44:23 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int				i;
-	long long int	num;
-	long long int	sgn;
+	long	res;
+	int		sgn;
 
-	i = 0;
-	num = 0;
+	res = 0;
 	sgn = 1;
-	if (str[i] == '\0')
-		return (0);
-	while (str[i] == '\t' || str[i] == '\r' || str[i] == '\f' ||
-			str[i] == '\v' || str[i] == '\0' || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
-			sgn = -1;
-	while (str[i] >= '0' && str[i] <= '9')
-		num = (num * 10) + (long long int)(str[i++] - '0');
-	return (num * sgn);
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sgn = -1;
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	return (sgn * (int)res);
 }

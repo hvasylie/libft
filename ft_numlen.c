@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_numlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/10 18:04:54 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/15 23:11:19 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/05/15 20:18:46 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/05/15 20:30:47 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_numlen(int nb)
 {
-	while (*s)
+	int		len;
+
+	len = 0;
+	if (nb < 0)
 	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
+		nb = nb * -1;
+		len++;
 	}
-	if (*s == c)
-		return ((char*)s);
-	else
-		return (0);
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	return (len);
 }

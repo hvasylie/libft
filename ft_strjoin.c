@@ -6,33 +6,37 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 17:13:53 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/13 23:12:23 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/15 22:42:25 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*res;
-	int		len;
-	int		i;
+	char	*str;
+	char	*str_start;
+	size_t	big_len;
 
-	len = ft_strlen((char*)s1) + ft_strlen((char*)s2);
-	res = (char*)malloc(sizeof(char) * len + 1);
-	i = 0;
-	while (s1[i])
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	big_len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char*)malloc((big_len) + 1);
+	if (str == NULL)
+		return (NULL);
+	str_start = str;
+	while (*s1 != '\0')
 	{
-		res[i] = s1[i];
-		i++;
+		*str = *s1;
+		str++;
 		s1++;
 	}
-	while (s2[i])
+	while (*s2 != '\0')
 	{
-		res[i] = s2[i];
-		i++;
+		*str = *s2;
+		str++;
 		s2++;
 	}
-	res[i] = '\0';
-	return (res);
+	*str = '\0';
+	return (str_start);
 }
