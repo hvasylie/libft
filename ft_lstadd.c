@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 22:43:36 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/16 23:28:05 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/05/16 23:29:42 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/05/16 23:29:54 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') ||
-		(c >= 'a' && c <= 'z'))
+	if (alst != NULL && new != NULL)
 	{
-		return (1);
+		new->next = *alst;
+		*alst = new;
 	}
-	return (0);
 }

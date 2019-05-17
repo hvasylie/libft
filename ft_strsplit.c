@@ -6,71 +6,85 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 21:01:38 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/11 13:34:51 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/16 23:26:31 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_count_words(const char *str, char c)
+static int		words(char const *str, char c)
 {
-	int	word;
-	int	i;
+	int i;
+	int words;
 
+	words = 0;
 	i = 0;
-	word = 0;
-	if (!str)
-		return (0);
 	while (str[i])
 	{
-		if (str[i] == c && str[i + 1] != c)
-			word++;
-		i++;
+		while (str[i] == c && str[i] != '\0')
+			i++;
+		if (str[i])
+			words++;
+		while (str[i] != c && str[i] != '\0')
+			i++;
 	}
-	if (str[0] != '\0')
-		word++;
-	return (word);
+	return (words);
 }
 
-static char		*ft_word(const char *str, char c, int *i)
+static char		**memory_giver(char const *str, char c)
 {
-	char	*s;
-	int		k;
-
-	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen((char*)str)))))
-		return (NULL);
-	k = 0;
-	while (str[*i] != c && str[*i])
-	{
-		s[k] = str[*i];
-		k++;
-		*i += 1;
-	}
-	s[k] = '\0';
-	while (str[*i] == c && str[*i])
-		*i += 1;
-	return (s);
-}
-
-char			**ft_strsplit(const char *str, char c)
-{
+	char	**res;
+	int		letters;
 	int		i;
 	int		j;
-	int		wrd;
-	char	**s;
 
+	if ((res = (char **)malloc(sizeof(char*) * (words(str, c) + 1))) == NULL)
+		return (NULL);
 	i = 0;
 	j = 0;
-	wrd = ft_count_words(str, c);
-	if (!(s = (char **)malloc(sizeof(s) * (ft_count_words(str, c) + 2))))
-		return (NULL);
-	while (str[i] == c && str[i])
-		i++;
-	while (j < wrd && str[i])
+	while (str[i])
 	{
-		s[j] = ft_word(str, c, &i);
-		j++;
+		letters = 0;
+		while (str[i] == c && str[i])
+			i++;
+		while (str[i] != c && str[i] != '\0')
+		{
+			letters++;
+			i++;
+		}
+		if (letters > 0)
+			if ((res[j++] = (char *)malloc(sizeof(char) * letters + 1)) == NULL)
+				return (NULL);
 	}
-	s[j] = NULL;
-	return (s);
+	res[j] = 0;
+	return (res);
+}
+
+char			**ft_strsplit(char const *str, char c)
+{
+	char	**res;
+	int		i;
+	int		j;
+	int		str_number;
+	int		size;
+
+	if (str == NULL)
+		return (NULL);
+	size = words(str, c);
+	res = memory_giver(str, c);
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	str_number = 0;
+	while (str_number < size)
+	{
+		while (str[i] == c && str[i])
+			i++;
+		j = 0;
+		while (str[i] != c && str[i])
+			res[str_number][j++] = str[i++];
+		res[str_number][j] = '\0';
+		str_number++;
+	}
+	return (res);
 }

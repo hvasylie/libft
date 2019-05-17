@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 20:47:03 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/06 21:33:57 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/16 23:12:45 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_strdel(char **as)
 {
-	if (*as != NULL || as != NULL)
+	if (as != NULL)
+	{
 		free(*as);
-	*as = NULL;
+		*as = NULL;
+	}
 }

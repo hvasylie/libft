@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:49:03 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/06 22:38:14 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/16 23:27:48 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
-		return (c);
+		return (1);
 	return (0);
 }
