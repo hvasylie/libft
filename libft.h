@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 13:59:45 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/05/17 20:03:14 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/05/17 20:18:44 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,8 @@ void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
+char				*ft_strlowcase(char *str);
+char				*ft_strupcase(char *str);
+void				ft_swap(int *a, int *b);
 
 #endif
